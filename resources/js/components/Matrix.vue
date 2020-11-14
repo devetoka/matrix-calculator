@@ -3,14 +3,14 @@
     <div class="cell-holder">
         <label>
           Row
-          <input type="number" @keyup="loadMatrix"  placeholder="enter num of row" v-model="row">
+          <input type="text"  @keyup="loadMatrix"  placeholder="enter num of row" v-model="row">
         </label>
       <label>
         x
       </label>
       <label>
         Column
-        <input type="number" @keyup="loadMatrix" placeholder="enter num of column" v-model="column">
+        <input type="text" @keyup="loadMatrix" placeholder="enter num of column" v-model="column">
       </label>
       <div   :key="i" v-for="(mat,i) in matrix">
         <cell @cellChange="updateMatrix" :key="j" :position="setRef(i,j)" :value="m" v-for="(m, j) in mat">
@@ -41,6 +41,10 @@
         methods: {
             loadMatrix() {
                 let matrix = [];
+                if(isNaN(this.row) || isNaN(this.column)){
+                    alert('Please enter a number');
+                    return;
+                }
                 for(let i = 0; i < this.row; i++){
                     let column = [];
                     for(let j = 0; j < this.column; j++){

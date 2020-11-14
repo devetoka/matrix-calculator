@@ -20,6 +20,10 @@
         ],
         methods: {
             change () {
+                if(isNaN(this.cell)) {
+                    alert('Please enter a number');
+                    return;
+                }
                 let cell = {
                     position: this.position,
                     value: this.cell
