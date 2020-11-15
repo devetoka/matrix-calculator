@@ -79,7 +79,7 @@
               }
               this.loading = true;
               this.validationErrors = [];
-              axios.post('http://localhost:8000/api/matrix/multiply', {
+              axios.post(location.origin+'/api/matrix/multiply', {
                   "first_matrix": this.first,
                   "second_matrix": this.second
               }).then(
